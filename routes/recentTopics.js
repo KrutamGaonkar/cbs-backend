@@ -5,7 +5,7 @@ const { db, storage, auth } = require('../firebase');
 router.get('/', async (req, res) => {
     try {
       const snapshot = await db
-        .collection('articles')
+        .collection('stories')
         .orderBy('createdAt', 'desc')
         .limit(6)
         .get();
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   
       res.status(200).json(titles);
     } catch (error) {
-      console.error('Error fetching latest article titles:', error);
+      console.error('Error fetching latest story titles:', error);
       res.status(500).json({ error: 'Something went wrong' });
     }
   });
