@@ -22,7 +22,7 @@ router.get('/recent-matches', async (req, res) => {
 
     if (data.typeMatches) {
       data.typeMatches.forEach(type => {
-        if (type.seriesMatches && type.matchType == 'International') {
+        if (type.seriesMatches) {
           type.seriesMatches.forEach(series => {
             if (series.seriesAdWrapper && series.seriesAdWrapper.matches) {
               series.seriesAdWrapper.matches.forEach(match => {
